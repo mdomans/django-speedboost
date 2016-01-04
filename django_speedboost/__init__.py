@@ -4,6 +4,11 @@ from __future__ import absolute_import, division, unicode_literals, print_functi
 import importlib
 import sys
 
+__django_version__ = '1.8.7'
+__version__ = '1.8.7.0'
+# Can't concat __django_version__ in __version__ because it breaks setup.py
+assert __version__.startswith(__django_version__)
+
 MODULE_NAMES = ["context", "context_processors", "base", "defaulttags"]
 
 
@@ -58,4 +63,4 @@ _instance = None
 _instance = DjangoCemplateImporter()
 
 if _instance is not None:
-    sys.meta_path.append(_instance)
+    sys.meta_path.insert(0, _instance)
