@@ -1,13 +1,19 @@
 notifications:
   email: false
-
 sudo: false
 language: python
 python:
-  - '2.7'
-
+- '2.7'
 install:
-  - pip install coveralls tox Cython
-
+- pip install coveralls tox Cython
 script:
-  - tox
+- tox
+deploy:
+  provider: pypi
+  user: ddalex
+  password:
+    secure: bEsrNWWq3c6xGdlcwowRZYb1EyEG6Ti+6IvIYknrvor+D2Ynt8hk3CSaK6YtVIvJGuk7JFR2PbYmBbj3qtPxP8XtrFBiQdyJy279F6bSAeGnyx10g9mGBa1SnUvTY+h0CUeH9qgmt1HJTkLCtlkkDEhjVYoEzzn7qI6vXzu1uNojGDG+9o8Q/zroajclm847EMyONH/wPL5SeKOVrJfa330k3uBzvU0eMRyMB2cUSX1VO0rph2EBA/KYSFdtYN0v4WHUUMHMUH4+3mJt4GOUNgEPJ/KYdABpQRqt+03+PsyqXSt9jYbVqsAq8us1huQKrn04X/U4roxkuoGmsNdnIqpu3nDdDYiRi2M9be4oynV5n8iEOF4wqtq89NKiGTz8ATm36krJVUv+yL0VMjcjJpjAYWGkdBamDNw+8Yxzrw7oPg6Tl62yiJeA96A7eD5uOEByZ1oislqkGJ/Wutv2JctV4v1zsvP/mS8za7dMASkx0x+9FMC3HwNVW9H/1kpyrr9B+pJpnPKdvlybL/aOwtyR+bmZRvXh5bZIgZKLi9JtPnutE7pMbu+b8wAr5bsr7KNfW7vm2s3H/Hb/Tg4zp2ttfBULx9b3b2FoKPeZF7yDQeoKxdT7Nq9KS8LBvnYYmfaMLHKxZKIkhUE0SSejdXyv5envzfn22RQUeRYuE1U=
+  on:
+    tags: true
+    repo: YPlan/django-speedboost
+    branch: deployement
