@@ -43,7 +43,7 @@ setup(
     description="Cython-compiles django.template.[base,context,context_processors].py files for speed improvements.",
     packages=["django_speedboost"],
     ext_modules=extensions,
-    install_requires=['django==1.8.7'],
+    install_requires=['django==1.8.8'],
     data_files=[(site_packages_rel_path, ["django_speedboost.pth"])],
     scripts="",
 )

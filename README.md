@@ -1,4 +1,4 @@
-# django-cemplate
+# django-speedboost
 Django template rendering code modified to be compiled with cython.
 
 Rationale
@@ -11,7 +11,7 @@ parts of the django.template with cython-compiled code to make it faster.
 Installation
 ============
 
-django_speedboost is currently compiled for django 1.8.7
+django_speedboost is currently compiled for django 1.8.8
 
 $ pip install django_speedboost 
 

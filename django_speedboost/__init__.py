@@ -4,8 +4,8 @@ from __future__ import absolute_import, division, unicode_literals, print_functi
 import importlib
 import sys
 
-__django_version__ = '1.8.7'
-__version__ = '1.8.7.0'
+__django_version__ = '1.8.8'
+__version__ = '1.8.8.0'
 # Can't concat __django_version__ in __version__ because it breaks setup.py
 assert __version__.startswith(__django_version__)
 
