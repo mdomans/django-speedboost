@@ -1,5 +1,7 @@
 .*.swp
 build/
+.tox
+.cache/
 dist/
 */*.c
 MANIFEST

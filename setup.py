@@ -13,8 +13,7 @@ site_packages_path = sysconfig.get_python_lib(plat_specific=True)
 site_packages_rel_path = site_packages_path[len(sysconfig.EXEC_PREFIX) + 1:]
 
 USE_CYTHON = False
-if 'cython' in sys.argv:
-    sys.argv.remove('cython')
+if 'sdist' in sys.argv:
     USE_CYTHON = True
 
 extensions = []
