@@ -1,3 +1,4 @@
+include setup.py README.rst HISTORY.rst MANIFEST.in LICENSE
 recursive-include django_speedboost *
 global-exclude *.py*
 include *.py

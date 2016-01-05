@@ -8,6 +8,8 @@ import subprocess
 import shutil
 import traceback
 
+from django_speedboost import __django_version__
+
 try:
     from flake8.main import main as flake8_main
 except ImportError:
@@ -41,18 +43,23 @@ def main():
             exit_on_failure(tests_django())
 
     if run_lint:
+        exit_on_failure(run_flake8())
         exit_on_failure(run_setup_py_check())
 
 
 _DIR_STACK = []
+
+
 def _pushd(new_dir):
     global _DIR_STACK
     _DIR_STACK.append(os.getcwd())
     os.chdir(new_dir)
 
+
 def _popd():
     global _DIR_STACK
     os.chdir(_DIR_STACK.pop())
+
 
 def download_file(url, dest):
     try:
@@ -87,15 +94,17 @@ def tests_django():
         traceback.print_exc(e)
         return 1
 
-    python_version=str(sys.version_info[0])
-    from django_speedboost import __django_version__
+    python_version = str(sys.version_info[0])
     env_path = os.environ['VIRTUAL_ENV']
 
     try:
         # download the django tarball for the version
         _pushd(env_path)
         os.makedirs("djangotests")
-        exitcode = download_file("https://github.com/django/django/archive/{0}.tar.gz".format(__django_version__), "djangotests/django.tar.gz")
+        exitcode = download_file(
+            "https://github.com/django/django/archive/{0}.tar.gz".format(__django_version__),
+            "djangotests/django.tar.gz"
+        )
         _popd()
 
         if exitcode:
@@ -133,6 +142,22 @@ def tests_django():
         ])
     finally:
         shutil.rmtree(os.path.join(env_path, "djangotests"))
+
+
+def run_flake8():
+    print('Running flake8 code linting')
+    try:
+        original_argv = sys.argv
+        sys.argv = ['flake8', 'django_speedboost']
+        did_fail = False
+        flake8_main()
+    except SystemExit:
+        did_fail = True
+    finally:
+        sys.argv = original_argv
+
+    print('flake8 failed' if did_fail else 'flake8 passed')
+    return did_fail
 
 
 def run_setup_py_check():
