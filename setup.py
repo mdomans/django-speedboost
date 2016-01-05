@@ -36,7 +36,7 @@ setup(
     name="django_speedboost",
     author="Alex DAMIAN",
     author_email="ddalex@gmail.com",
-    version="1.00",
+    version="1.02",
     license="GPL",
     url="https://github.com/ddalex/django-cemplate",
     download_url="https://github.com/ddalex/django-cemplate/releases",
