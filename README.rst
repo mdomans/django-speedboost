@@ -27,7 +27,7 @@ Django-Speedboost is currently compiled for Django 1.8.8 only. Install with:
 
 .. code-block:: bash
 
-    pip install django_speedboost
+    pip install django-speedboost
 
 If you get missing header compilation errors, install your distribution's python library development headers, for
 example on Ubuntu:

@@ -49,7 +49,7 @@ site_packages_path = sysconfig.get_python_lib(plat_specific=True)
 site_packages_rel_path = site_packages_path[len(sysconfig.EXEC_PREFIX) + 1:]
 
 setup(
-    name="django_speedboost",
+    name="django-speedboost",
     author="Alex Damian",
     author_email="alex@yplanapp.com",
     version=version,
