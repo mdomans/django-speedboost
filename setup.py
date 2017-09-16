@@ -59,7 +59,7 @@ setup(
     long_description=readme + '\n\n' + history,
     packages=["django_speedboost"],
     ext_modules=extensions,
-    install_requires=['django==1.8.8'],
+    install_requires=['django==1.11.4'],
     data_files=[(site_packages_rel_path, ["django_speedboost.pth"])],
     scripts="",
     classifiers=[
